@@ -4,8 +4,7 @@
     {
         static void Main()
         {
-            BASADON:
-            Console.Write("Görmek istediğiniz projeyi seçiniz :\n" +
+                Console.Write("Görmek istediğiniz projeyi seçiniz :\n" +
                 "Proje 1 (Girilen sayının çift - tek kontrolü (if))\n" +
                 "Proje 2 (1 den 10 a kadar sayıları ekrana yazı değeri olarak yazma işlemi)\n" +
                 "Proje 3 (Kullanıcı adı admin ve şifre Admin_32453@ olduğunda " +
@@ -14,31 +13,43 @@
                 "ekrana (normal - sıcak - çok sıcak) uyarısı veren veren c# kodu)\n" +
                 "Seçiminiz :");
             string girdi = Console.ReadLine();
-            if (girdi == "1" || girdi == "2" || girdi == "3" || girdi == "4") {
+            if (girdi == "1" || girdi == "2" || girdi == "3" || girdi == "4")
+            {
                 int deger = Convert.ToInt16(girdi);
                 switch (deger)
                 {
-                    case 1: Console.Clear(); fonk1(); sorgu(); break;
-                    case 2: Console.Clear(); fonk2(); sorgu(); break;
-                    case 3: Console.Clear(); fonk3(); sorgu(); break;
-                    case 4: Console.Clear(); fonk4(); sorgu(); break;
+                    case 1: Console.Clear(); fonk1(); break;
+                    case 2: Console.Clear(); fonk2(); break;
+                    case 3: Console.Clear(); fonk3(); break;
+                    case 4: Console.Clear(); fonk4(); break;
                     default: Console.Clear(); Console.WriteLine("Hatalı Seçim Yaptınız! Lütfen 1-4 arası seçim yapınız."); Main(); break;
                 }
             }
-            else Console.WriteLine("Hatalı Seçim Yaptınız! Lütfen 1-4 arası seçim yapınız.\n"); Main();
+            else
+            {
+                Console.WriteLine("Hatalı Seçim Yaptınız! Lütfen 1-4 arası seçim yapınız.\n");
+                Main();
+            }
         }
 
         static void tekrar(Action fonksiyon)
         {
-            BASADON:
+            BASADON2:
             Console.Write("Tekrar işlem yapmak ister misiniz? (e ya da h)  ");
             char tekrar_islem = Convert.ToChar(Console.ReadLine());
             if (tekrar_islem == 'e' || tekrar_islem == 'E')
             {
                 Console.Clear(); fonksiyon();
             }
-            else if (tekrar_islem == 'h' || tekrar_islem == 'H') sorgu();
-            else Console.WriteLine("Hatalı cevap!"); goto BASADON;
+            else if (tekrar_islem == 'h' || tekrar_islem == 'H')
+            {
+                sorgu();
+                return;
+            }
+            else
+            {
+                Console.WriteLine("Hatalı cevap!"); goto BASADON2;
+            }
         }
         static void sorgu()
         {
@@ -57,7 +68,11 @@
                 Console.WriteLine("-------------------------");
                 Main();
             }
-            else Console.WriteLine("Hatalı Giriş!"); goto BASADON;
+            else
+            {
+                Console.WriteLine("Hatalı Giriş!");
+                goto BASADON;
+            }
         }
         static void fonk1()
         {
